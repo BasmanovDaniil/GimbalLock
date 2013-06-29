@@ -1,7 +1,7 @@
 Gimbal-Lock
 ===========
 
-Демонстрация феномена Gimbal Lock
+Демонстрация феномена Gimbal Lock на Unity3d
 
 http://habrahabr.ru/post/183116/
 
