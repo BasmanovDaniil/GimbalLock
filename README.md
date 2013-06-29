@@ -3,6 +3,8 @@ Gimbal-Lock
 
 Демонстрация феномена Gimbal Lock
 
+http://habrahabr.ru/post/183116/
+
 Unity Web Player http://basmanovdaniil.github.io/GimbalLock/
 
 Windows http://yadi.sk/d/aiM0vb_r600XG
