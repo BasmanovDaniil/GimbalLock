@@ -14,3 +14,5 @@ Linux http://yadi.sk/d/aaL7julW60-AA
 Mac http://yadi.sk/d/nK-0iZMq60-Co
 
 Работоспособность проверялась только на четвёртой версии Unity3d
+
+![Screenshot](http://habrastorage.org/storage2/ec3/09f/b74/ec309fb74e342b35166a4be332670df6.png) 
