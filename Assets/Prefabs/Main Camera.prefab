@@ -10,7 +10,6 @@ GameObject:
   - component: {fileID: 400000}
   - component: {fileID: 2000000}
   - component: {fileID: 9200000}
-  - component: {fileID: 12400000}
   - component: {fileID: 8100000}
   - component: {fileID: 11400000}
   m_Layer: 0
@@ -100,13 +99,6 @@ MonoBehaviour:
   ySpeed: 120
   yMinLimit: -20
   yMaxLimit: 80
---- !u!124 &12400000
-Behaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100000}
-  m_Enabled: 1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
