@@ -6,12 +6,12 @@ Gimbal-Lock
 
 http://habrahabr.ru/post/183116/
 
-Unity Web Player http://basmanovdaniil.github.io/GimbalLock/
+WebGL http://basmanovdaniil.github.io/GimbalLock/
 
-Windows http://yadi.sk/d/aiM0vb_r600XG
+Windows https://github.com/BasmanovDaniil/GimbalLock/releases/download/1.0/GimbalLock.Windows.zip
 
-Linux http://yadi.sk/d/aaL7julW60-AA
+Linux https://github.com/BasmanovDaniil/GimbalLock/releases/download/1.0/GimbalLock.Linux.zip
 
-Mac http://yadi.sk/d/nK-0iZMq60-Co
+Mac https://github.com/BasmanovDaniil/GimbalLock/releases/download/1.0/GimbalLock.Mac.zip
 
-Работоспособность проверялась только на четвёртой версии Unity3d
+Работоспособность проверялась только в 5.6.0f3
