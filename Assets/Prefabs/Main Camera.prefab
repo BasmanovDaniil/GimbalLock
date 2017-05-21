@@ -9,7 +9,6 @@ GameObject:
   m_Component:
   - component: {fileID: 400000}
   - component: {fileID: 2000000}
-  - component: {fileID: 9200000}
   - component: {fileID: 8100000}
   - component: {fileID: 11400000}
   m_Layer: 0
@@ -41,7 +40,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.3372549, g: 0.19215687, b: 0.4745098, a: 0.019607844}
+  m_BackGroundColor: {r: 0.3372549, g: 0.19215687, b: 0.4745098, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -70,13 +69,6 @@ Camera:
   m_StereoMirrorMode: 0
 --- !u!81 &8100000
 AudioListener:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100000}
-  m_Enabled: 1
---- !u!92 &9200000
-Behaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
