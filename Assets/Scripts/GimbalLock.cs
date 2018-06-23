@@ -4,9 +4,11 @@ using UnityEngine.UI;
 
 public class GimbalLock : MonoBehaviour
 {
+    [Header("Gimbals")]
     public Transform gimbalX;
     public Transform gimbalY;
     public Transform gimbalZ;
+    [Header("UI")]
     public Text xText;
     public Text yText;
     public Text zText;
@@ -14,6 +16,7 @@ public class GimbalLock : MonoBehaviour
     public Text tab;
     public Text comment;
     public GameObject controls;
+    [Header("Audio")]
     public AudioSource click;
     public AudioSource tick;
 
@@ -32,7 +35,7 @@ public class GimbalLock : MonoBehaviour
     private string xArrow;
     private string yArrow;
     private string zArrow;
-    private bool quaternions;
+    private bool useQuaternions;
     private bool auto;
     private bool clicked;
     private bool reset;
@@ -43,7 +46,7 @@ public class GimbalLock : MonoBehaviour
     private void Update()
     {
         if (Input.GetKey(KeyCode.Escape)) Application.Quit();
-        if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift)) SwitchQuaternions();
+        if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift)) SwitchUseQuaternions();
         if (Input.GetKeyDown(KeyCode.Tab)) SwitchAuto();
         if (Input.GetKeyDown(KeyCode.Space)) ResetRotation();
 
@@ -69,7 +72,7 @@ public class GimbalLock : MonoBehaviour
             }
         }
 
-        if (quaternions)
+        if (useQuaternions)
         {
             if (Input.GetKey(KeyCode.D) || auto) gimbalX.localRotation *= Quaternion.Euler(+1, 0, 0);
             if (Input.GetKey(KeyCode.A)) gimbalX.localRotation *= Quaternion.Euler(-1, 0, 0);
@@ -101,15 +104,15 @@ public class GimbalLock : MonoBehaviour
         }
 
         UpdateArrow(gimbalX.localEulerAngles.x, oldX, ref xArrow);
-        UpdateArrow(gimbalX.localEulerAngles.y, oldY, ref yArrow);
-        UpdateArrow(gimbalX.localEulerAngles.z, oldZ, ref zArrow);
+        UpdateArrow(gimbalY.localEulerAngles.y, oldY, ref yArrow);
+        UpdateArrow(gimbalZ.localEulerAngles.z, oldZ, ref zArrow);
 
         oldX = gimbalX.localEulerAngles.x;
         oldY = gimbalY.localEulerAngles.y;
         oldZ = gimbalZ.localEulerAngles.z;
         xText.text = string.Format(xTextFormat, gimbalX.localEulerAngles.x, xArrow);
-        yText.text = string.Format(yTextFormat, gimbalX.localEulerAngles.y, yArrow);
-        zText.text = string.Format(zTextFormat, gimbalX.localEulerAngles.z, zArrow);
+        yText.text = string.Format(yTextFormat, gimbalY.localEulerAngles.y, yArrow);
+        zText.text = string.Format(zTextFormat, gimbalZ.localEulerAngles.z, zArrow);
     }
 
     private IEnumerator Capture(float pause)
@@ -134,12 +137,12 @@ public class GimbalLock : MonoBehaviour
             if (reset)
             {
                 auto = false;
-                quaternions = false;
-                comment.text = "Выравнивание рамки " + yColor + "Y</color>\nи рамки " + zColor +
-                               "Z</color> приводит\nк потере подвижности.\nВращение вокруг\nоси " + xColor +
-                               "X</color> и оси " + zColor + "Z</color>\nприводит к\nодинаковому результату";
-                StartCoroutine(RotateY(720, 1, 3));
-                StartCoroutine(RotateZ(720, 1, 3));
+                useQuaternions = false;
+                comment.text = "Выравнивание рамки " + xColor + "X</color>\nи рамки " + zColor +
+                               "Z</color> приводит\nк потере подвижности.\nВращение вокруг\nоси " + yColor +
+                               "Y</color> и оси " + zColor + "Z</color>\nприводит к\nодинаковому результату";
+                StartCoroutine(RotateY(720, 1, wait: 3));
+                StartCoroutine(RotateZ(720, 1, wait: 3));
                 Invoke("ResetRotation", 16);
                 Invoke("ResetComment", 16);
                 break;
@@ -161,12 +164,12 @@ public class GimbalLock : MonoBehaviour
             if (reset)
             {
                 auto = false;
-                quaternions = false;
+                useQuaternions = false;
                 comment.text = "Из-за выравнивания рамок\nв данном положении\nневозможен крен";
-                StartCoroutine(RotateGimbals(45, 1, 3));
-                StartCoroutine(RotateGimbals(90, -1, 5));
-                StartCoroutine(RotateGimbals(90, 1, 7));
-                StartCoroutine(RotateGimbals(45, -1, 9));
+                StartCoroutine(RotateGimbals(45, 1, wait: 3));
+                StartCoroutine(RotateGimbals(90, -1, wait: 5));
+                StartCoroutine(RotateGimbals(90, 1, wait: 7));
+                StartCoroutine(RotateGimbals(45, -1, wait: 9));
                 Invoke("ResetRotation", 11);
                 Invoke("ResetComment", 11);
                 break;
@@ -187,14 +190,14 @@ public class GimbalLock : MonoBehaviour
             if (reset)
             {
                 auto = false;
-                quaternions = false;
+                useQuaternions = false;
                 comment.text = "Внутренний блок в Unity3d.\nВращение вокруг\nоси " + xColor +
                                "X</color> застопоривается\nв положении 90° и -90°\nпри использовании\n" + eulerColor +
                                "углов Эйлера</color>\nно работает\n с " + quaternionColor + "кватернионами</color>";
                 Invoke("SwitchAuto", 3);
-                Invoke("SwitchQuaternions", 10);
-                Invoke("SwitchQuaternions", 18);
-                Invoke("SwitchQuaternions", 26);
+                Invoke("SwitchUseQuaternions", 10);
+                Invoke("SwitchUseQuaternions", 18);
+                Invoke("SwitchUseQuaternions", 26);
                 Invoke("ResetComment", 34);
                 break;
             }
@@ -217,23 +220,18 @@ public class GimbalLock : MonoBehaviour
         }
     }
 
-    private void SwitchQuaternions()
+    private void SwitchUseQuaternions()
     {
-        if (quaternions)
+        if (useQuaternions)
         {
-            quaternions = false;
+            useQuaternions = false;
             shift.text = "Shift —\nИспользовать " + quaternionColor + "кватернионы</color>";
         }
         else
         {
-            quaternions = true;
+            useQuaternions = true;
             shift.text = "Shift —\nИспользовать " + eulerColor + "углы Эйлера</color>";
         }
-    }
-
-    private IEnumerator RotateX(int count, int speed = 1, float wait = 0)
-    {
-        yield return StartCoroutine(RotateAxis(count, gimbalX, 0, speed, wait));
     }
 
     private IEnumerator RotateY(int count, int speed = 1, float wait = 0)
@@ -258,7 +256,7 @@ public class GimbalLock : MonoBehaviour
         rotation[axis] = speed;
         for (var i = 0; i < count; i++)
         {
-            if (quaternions)
+            if (useQuaternions)
             {
                 gimbal.localRotation *= Quaternion.Euler(rotation);
                 yield return null;
@@ -274,7 +272,7 @@ public class GimbalLock : MonoBehaviour
     private IEnumerator RotateTo(float x, float y, float z)
     {
         reset = false;
-        if (!quaternions) SwitchQuaternions();
+        if (!useQuaternions) SwitchUseQuaternions();
         if (auto) SwitchAuto();
         var quatX = Quaternion.Euler(x, 0, 0);
         var quatY = Quaternion.Euler(0, y, 0);
