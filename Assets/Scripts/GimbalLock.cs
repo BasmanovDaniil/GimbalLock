@@ -115,7 +115,7 @@ public class GimbalLock : MonoBehaviour
     {
         while (onAir)
         {
-            Application.CaptureScreenshot(Application.dataPath + "/Screenshot" + screenshotCount + ".png");
+            ScreenCapture.CaptureScreenshot(Application.dataPath + "/Screenshot" + screenshotCount + ".png");
             screenshotCount++;
             yield return new WaitForSeconds(pause);
         }
