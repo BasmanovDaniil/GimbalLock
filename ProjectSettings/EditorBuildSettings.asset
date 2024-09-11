@@ -6,5 +6,10 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Gimbal lock.unity
-    guid: 00000000000000000000000000000000
+    path: Assets/Scenes/GimbalLock.unity
+    guid: c2e67e07370d30b49ac5cd57b1c9efac
+  - enabled: 1
+    path: Assets/Scenes/Quaternions.unity
+    guid: f237d74d39a6c0b4eb809e8df310eb5b
+  m_configObjects: {}
+  m_UseUCBPForAssetBundles: 0
