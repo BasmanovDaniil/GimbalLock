@@ -1,40 +1,23 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class GimbalLock : MonoBehaviour
 {
+    public GimbalLockUI ui;
     [Header("Gimbals")]
     public Transform gimbalX;
     public Transform gimbalY;
     public Transform gimbalZ;
-    [Header("UI")]
-    public Text xText;
-    public Text yText;
-    public Text zText;
-    public Text shift;
-    public Text tab;
-    public Text comment;
-    public GameObject controls;
     [Header("Audio")]
     public AudioSource click;
     public AudioSource tick;
 
-    private const string xColor = "<color=#f14121ff>";
-    private const string yColor = "<color=#98f145ff>";
-    private const string zColor = "<color=#3d80f1ff>";
-    private const string xTextFormat = xColor + "X: {0:F0}° {1}</color>";
-    private const string yTextFormat = yColor + "Y: {0:F0}° {1}</color>";
-    private const string zTextFormat = zColor + "Z: {0:F0}° {1}</color>";
-    private const string eulerColor = xColor;
-    private const string quaternionColor = yColor;
-
     private float oldX;
     private float oldY;
     private float oldZ;
-    private string xArrow;
-    private string yArrow;
-    private string zArrow;
+    private string arrowX;
+    private string arrowY;
+    private string arrowZ;
     private bool useQuaternions;
     private bool auto;
     private bool clicked;
@@ -66,7 +49,7 @@ public class GimbalLock : MonoBehaviour
                     x: gimbalX.localEulerAngles.x + 180,
                     y: gimbalY.localEulerAngles.y + 180,
                     z: gimbalZ.localEulerAngles.z + 180));
-                comment.text = ";)";
+                ui.SetCommentary(";)");
                 onAir = true;
                 StartCoroutine(Capture(0.3f));
             }
@@ -103,16 +86,14 @@ public class GimbalLock : MonoBehaviour
             clicked = false;
         }
 
-        UpdateArrow(gimbalX.localEulerAngles.x, oldX, ref xArrow);
-        UpdateArrow(gimbalY.localEulerAngles.y, oldY, ref yArrow);
-        UpdateArrow(gimbalZ.localEulerAngles.z, oldZ, ref zArrow);
+        UpdateArrow(gimbalX.localEulerAngles.x, oldX, ref arrowX);
+        UpdateArrow(gimbalY.localEulerAngles.y, oldY, ref arrowY);
+        UpdateArrow(gimbalZ.localEulerAngles.z, oldZ, ref arrowZ);
 
         oldX = gimbalX.localEulerAngles.x;
         oldY = gimbalY.localEulerAngles.y;
         oldZ = gimbalZ.localEulerAngles.z;
-        xText.text = string.Format(xTextFormat, gimbalX.localEulerAngles.x, xArrow);
-        yText.text = string.Format(yTextFormat, gimbalY.localEulerAngles.y, yArrow);
-        zText.text = string.Format(zTextFormat, gimbalZ.localEulerAngles.z, zArrow);
+        ui.SetEuler(new Vector3(gimbalX.localEulerAngles.x, gimbalY.localEulerAngles.y, gimbalZ.localEulerAngles.z), arrowX, arrowY, arrowZ);
     }
 
     private IEnumerator Capture(float pause)
@@ -127,10 +108,11 @@ public class GimbalLock : MonoBehaviour
 
     private IEnumerator Demo1()
     {
-        comment.text = "";
-        controls.SetActive(false);
-        tab.gameObject.SetActive(false);
-        shift.gameObject.SetActive(false);
+        ui.SetCommentary("");
+        ui.SetControlsVisible(false);
+        ui.SetAutoRotationVisible(false);
+        ui.SetUseQuaternionsVisible(false);
+
         StartCoroutine(RotateTo(90, 0, 0));
         while (true)
         {
@@ -138,9 +120,9 @@ public class GimbalLock : MonoBehaviour
             {
                 auto = false;
                 useQuaternions = false;
-                comment.text = "Выравнивание рамки " + xColor + "X</color>\nи рамки " + zColor +
-                               "Z</color> приводит\nк потере подвижности.\nВращение вокруг\nоси " + yColor +
-                               "Y</color> и оси " + zColor + "Z</color>\nприводит к\nодинаковому результату";
+                ui.SetCommentary("Выравнивание рамки " + GimbalLockUI.xColor + "X</color>\nи рамки " + GimbalLockUI.zColor +
+                                 "Z</color> приводит\nк потере подвижности.\nВращение вокруг\nоси " + GimbalLockUI.yColor +
+                                 "Y</color> и оси " + GimbalLockUI.zColor + "Z</color>\nприводит к\nодинаковому результату");
                 StartCoroutine(RotateY(720, 1, wait: 3));
                 StartCoroutine(RotateZ(720, 1, wait: 3));
                 Invoke("ResetRotation", 16);
@@ -154,10 +136,11 @@ public class GimbalLock : MonoBehaviour
 
     private IEnumerator Demo2()
     {
-        comment.text = "";
-        controls.SetActive(false);
-        tab.gameObject.SetActive(false);
-        shift.gameObject.SetActive(false);
+        ui.SetCommentary("");
+        ui.SetControlsVisible(false);
+        ui.SetAutoRotationVisible(false);
+        ui.SetUseQuaternionsVisible(false);
+
         StartCoroutine(RotateTo(90, 0, 0));
         while (true)
         {
@@ -165,7 +148,7 @@ public class GimbalLock : MonoBehaviour
             {
                 auto = false;
                 useQuaternions = false;
-                comment.text = "Из-за выравнивания рамок\nв данном положении\nневозможен крен";
+                ui.SetCommentary("Из-за выравнивания рамок\nв данном положении\nневозможен крен");
                 StartCoroutine(RotateGimbals(45, 1, wait: 3));
                 StartCoroutine(RotateGimbals(90, -1, wait: 5));
                 StartCoroutine(RotateGimbals(90, 1, wait: 7));
@@ -181,9 +164,10 @@ public class GimbalLock : MonoBehaviour
 
     private IEnumerator Demo3()
     {
-        comment.text = "";
-        controls.SetActive(false);
-        tab.gameObject.SetActive(false);
+        ui.SetCommentary("");
+        ui.SetControlsVisible(false);
+        ui.SetAutoRotationVisible(false);
+
         StartCoroutine(RotateTo(90, 0, 0));
         while (true)
         {
@@ -191,9 +175,9 @@ public class GimbalLock : MonoBehaviour
             {
                 auto = false;
                 useQuaternions = false;
-                comment.text = "Внутренний блок в Unity3d.\nВращение вокруг\nоси " + xColor +
-                               "X</color> застопоривается\nв положении 90° и -90°\nпри использовании\n" + eulerColor +
-                               "углов Эйлера</color>\nно работает\n с " + quaternionColor + "кватернионами</color>";
+                ui.SetCommentary("Внутренний блок в Unity3d.\nВращение вокруг\nоси " + GimbalLockUI.xColor +
+                                 "X</color> застопоривается\nв положении 90° и -90°\nпри использовании\n" + GimbalLockUI.eulerColor +
+                                 "углов Эйлера</color>\nно работает\n с " + GimbalLockUI.quaternionColor + "кватернионами</color>");
                 Invoke("SwitchAuto", 3);
                 Invoke("SwitchUseQuaternions", 10);
                 Invoke("SwitchUseQuaternions", 18);
@@ -208,30 +192,14 @@ public class GimbalLock : MonoBehaviour
 
     private void SwitchAuto()
     {
-        if (auto)
-        {
-            auto = false;
-            tab.text = "Tab — Вкл. автовращение";
-        }
-        else
-        {
-            auto = true;
-            tab.text = "Tab — Выкл. автовращение";
-        }
+        auto = !auto;
+        ui.SetAutoRotation(auto);
     }
 
     private void SwitchUseQuaternions()
     {
-        if (useQuaternions)
-        {
-            useQuaternions = false;
-            shift.text = "Shift —\nИспользовать " + quaternionColor + "кватернионы</color>";
-        }
-        else
-        {
-            useQuaternions = true;
-            shift.text = "Shift —\nИспользовать " + eulerColor + "углы Эйлера</color>";
-        }
+        useQuaternions = !useQuaternions;
+        ui.SetUseQuaternions(useQuaternions);
     }
 
     private IEnumerator RotateY(int count, int speed = 1, float wait = 0)
@@ -308,10 +276,10 @@ public class GimbalLock : MonoBehaviour
 
     private void ResetComment()
     {
-        comment.text = "1, 2, 3 —\nПереключение\nдемонстраций\nс комментариями";
-        controls.SetActive(true);
-        tab.gameObject.SetActive(true);
-        shift.gameObject.SetActive(true);
+        ui.SetCommentary("1, 2, 3 —\nПереключение\nдемонстраций\nс комментариями");
+        ui.SetControlsVisible(true);
+        ui.SetAutoRotationVisible(true);
+        ui.SetUseQuaternionsVisible(true);
     }
 
     private void UpdateArrow(float angle, float oldAngle, ref string axisArrow)
