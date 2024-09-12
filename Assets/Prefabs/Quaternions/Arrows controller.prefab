@@ -980,16 +980,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orbit: {fileID: 0}
+  ui: {fileID: 0}
   vectorArrow: {fileID: 4615787238951570}
   vectorGoal: {fileID: 4515835844535880}
   vectorModel: {fileID: 1418979791410564}
   quaternionArrow: {fileID: 4091171025863414}
   quaternionGoal: {fileID: 4241822681767970}
-  quaternionModel: {fileID: 1764305196191894}
-  leftEuler: {fileID: 0}
-  leftQuaternion: {fileID: 0}
-  rightEuler: {fileID: 0}
-  rightQuaternion: {fileID: 0}
   vectorX: {fileID: 96708076534351218}
   vectorY: {fileID: 96045821017575102}
   vectorZ: {fileID: 96086490445536842}

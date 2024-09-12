@@ -1,21 +1,15 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Quaternions : MonoBehaviour
 {
     public MouseOrbit orbit;
+    public QuaternionsUI ui;
     [Header("Arrows")]
     public Transform vectorArrow;
     public Transform vectorGoal;
     public GameObject vectorModel;
     public Transform quaternionArrow;
     public Transform quaternionGoal;
-    public GameObject quaternionModel;
-    [Header("UI")]
-    public Text leftEuler;
-    public Text leftQuaternion;
-    public Text rightEuler;
-    public Text rightQuaternion;
     [Header("Trails")]
     public TrailRenderer vectorX;
     public TrailRenderer vectorY;
@@ -24,13 +18,6 @@ public class Quaternions : MonoBehaviour
     public TrailRenderer quaternionY;
     public TrailRenderer quaternionZ;
 
-    private const string eulerFormat = "<color=#f14121ff>X: {0:F0}°</color>\n" +
-                                       "<color=#98f145ff>Y: {1:F0}°</color>\n" +
-                                       "<color=#3d80f1ff>Z: {2:F0}°</color>";
-    private const string quaternionFormat = "<color=#f14121ff>QX: {0:F2}</color>\n" +
-                                            "<color=#98f145ff>QY: {1:F2}</color>\n" +
-                                            "<color=#3d80f1ff>QZ: {2:F2}</color>\n" +
-                                            "QW: {3:F2}";
     private const float offset = 0.6f;
     private const float followSpeed = 2;
 
@@ -114,15 +101,10 @@ public class Quaternions : MonoBehaviour
             }
         }
 
-        leftEuler.text = string.Format(eulerFormat,
-            quaternionArrow.eulerAngles.x, quaternionArrow.eulerAngles.y, quaternionArrow.eulerAngles.z);
-        leftQuaternion.text = string.Format(quaternionFormat,
-            quaternionArrow.rotation.x, quaternionArrow.rotation.y, quaternionArrow.rotation.z, quaternionArrow.rotation.w);
-
-        rightEuler.text = string.Format(eulerFormat,
-            vectorArrow.eulerAngles.x, vectorArrow.eulerAngles.y, vectorArrow.eulerAngles.z);
-        rightQuaternion.text = string.Format(quaternionFormat,
-            vectorArrow.rotation.x, vectorArrow.rotation.y, vectorArrow.rotation.z, vectorArrow.rotation.w);
+        ui.SetLeftEuler(quaternionArrow.eulerAngles);
+        ui.SetLeftQuaternion(quaternionArrow.rotation);
+        ui.SetRightEuler(vectorArrow.eulerAngles);
+        ui.SetRightQuaternion(vectorArrow.rotation);
     }
 
     private void ResetTrails()
