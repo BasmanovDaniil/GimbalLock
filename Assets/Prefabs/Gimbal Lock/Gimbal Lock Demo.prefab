@@ -896,7 +896,7 @@ GameObject:
   - component: {fileID: 82560477894172946}
   - component: {fileID: 82550296781487898}
   m_Layer: 0
-  m_Name: Gimbal Z
+  m_Name: Gimbal Lock Demo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

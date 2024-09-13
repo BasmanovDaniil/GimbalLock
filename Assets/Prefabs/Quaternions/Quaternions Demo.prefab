@@ -944,7 +944,7 @@ GameObject:
   - component: {fileID: 4294217652665522}
   - component: {fileID: 114674727952385692}
   m_Layer: 0
-  m_Name: Arrows controller
+  m_Name: Quaternions Demo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
