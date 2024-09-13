@@ -1,17 +1,17 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI%20Toolkit/StyleSheet.uss?fileID=7433441132597879392&amp;guid=5b829a298b0ef33489d72f44776cca7d&amp;type=3#StyleSheet" />
     <ui:VisualElement name="Top" style="flex-direction: row; position: absolute; top: 0; left: 0; right: 0; bottom: 0;">
-        <ui:Label text="&lt;color=#f14121ff&gt;-A +D&lt;/color&gt; — Вращать рамку &lt;color=#f14121ff&gt;X&lt;/color&gt;" name="AD" class="text" style="top: 30px; left: 50px; transform-origin: left top; position: absolute; align-self: flex-start; -unity-text-align: upper-left;" />
-        <ui:Label text="&lt;color=#98f145ff&gt;-S +W&lt;/color&gt; — Вращать рамку &lt;color=#98f145ff&gt;Y&lt;/color&gt;" name="SW" class="text" style="top: 30px; transform-origin: top; position: absolute; align-self: center; -unity-text-align: upper-center; left: 50px; right: 50px;" />
-        <ui:Label text="&lt;color=#3d80f1ff&gt;-Q +E&lt;/color&gt; — Вращать рамку &lt;color=#3d80f1ff&gt;Z&lt;/color&gt;" name="QE" class="text" style="top: 30px; right: 50px; transform-origin: right top; position: absolute; -unity-text-align: upper-right; align-self: flex-end;" />
+        <ui:Label text="&lt;color=#f14121ff&gt;-A +D&lt;/color&gt; — Rotate gimbal &lt;color=#f14121ff&gt;X&lt;/color&gt;" name="AD" class="text" style="top: 30px; left: 50px; transform-origin: left top; position: absolute; align-self: flex-start; -unity-text-align: upper-left;" />
+        <ui:Label text="&lt;color=#98f145ff&gt;-S +W&lt;/color&gt; — Rotate gimbal &lt;color=#98f145ff&gt;Y&lt;/color&gt;" name="SW" class="text" style="top: 30px; transform-origin: top; position: absolute; align-self: center; -unity-text-align: upper-center; left: 50px; right: 50px;" />
+        <ui:Label text="&lt;color=#3d80f1ff&gt;-Q +E&lt;/color&gt; — Rotate gimbal &lt;color=#3d80f1ff&gt;Z&lt;/color&gt;" name="QE" class="text" style="top: 30px; right: 50px; transform-origin: right top; position: absolute; -unity-text-align: upper-right; align-self: flex-end;" />
     </ui:VisualElement>
     <ui:VisualElement name="Middle" style="position: absolute; flex-direction: row; top: 0; left: 0; right: 0; bottom: 0;">
         <ui:Label text="&lt;color=#f14121ff&gt;X: 0°&lt;/color&gt;&#10;&lt;color=#98f145ff&gt;Y: 0°&lt;/color&gt;&#10;&lt;color=#3d80f1ff&gt;Z: 0°&lt;/color&gt;" name="Rotation" class="textMono" style="left: 50px; transform-origin: left; position: absolute; align-self: flex-start; top: 150px; bottom: 150px; -unity-text-align: middle-left;" />
         <ui:Label text="1, 2, 3 —&#10;Переключение&#10;демонстраций&#10;с комментариями" name="Commentary" class="text" style="right: 50px; transform-origin: right top; position: absolute; -unity-text-align: middle-right; align-self: flex-end; bottom: 150px; top: 150px;" />
     </ui:VisualElement>
     <ui:VisualElement name="Bottom" style="flex-direction: row; position: absolute; top: 0; left: 0; right: 0; bottom: 0;">
-        <ui:Label text="Space —&#10;Обнулить вращение" name="Reset" class="text" style="transform-origin: left bottom; align-self: flex-start; -unity-text-align: upper-left; left: 50px; position: absolute; bottom: 30px;" />
-        <ui:Label text="Tab — Вкл. автовращение" name="AutoRotation" class="text" style="transform-origin: bottom; position: absolute; -unity-text-align: upper-center; align-self: center; bottom: 30px; left: 50px; right: 50px;" />
-        <ui:Label text="Shift —&#10;Использовать &lt;color=#98f145ff&gt;кватернионы&lt;/color&gt;" name="RotationType" class="text" style="transform-origin: right bottom; position: absolute; -unity-text-align: upper-right; right: 50px; align-self: flex-end; bottom: 30px;" />
+        <ui:Label text="Shift — Use &lt;color=#98f145ff&gt;quaternions&lt;/color&gt;" name="RotationType" class="text" style="transform-origin: right bottom; position: absolute; -unity-text-align: upper-left; right: auto; align-self: flex-end; bottom: 30px; left: 50px;" />
+        <ui:Label text="Space — Reset rotation" name="Reset" class="text" style="transform-origin: left bottom; align-self: flex-start; -unity-text-align: upper-center; left: 50px; position: absolute; bottom: 30px; right: 50px;" />
+        <ui:Label text="Tab — Enable auto rotation" name="AutoRotation" class="text" style="transform-origin: bottom; position: absolute; -unity-text-align: upper-right; align-self: center; bottom: 30px; left: auto; right: 50px;" />
     </ui:VisualElement>
 </ui:UXML>

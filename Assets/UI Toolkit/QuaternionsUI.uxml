@@ -3,11 +3,11 @@
     <ui:VisualElement name="Container">
         <ui:Label text="&lt;color=#f14121ff&gt;X: 360°&lt;/color&gt;&#10;&lt;color=#98f145ff&gt;Y: 0°&lt;/color&gt;&#10;&lt;color=#3d80f1ff&gt;Z: 0°&lt;/color&gt;" name="LeftEuler" class="textMono" style="top: 30px; left: 50px; transform-origin: left top; position: absolute; width: 130px;" />
         <ui:Label text="&lt;color=#f14121ff&gt;QX: 0.00&lt;/color&gt;&#10;&lt;color=#98f145ff&gt;QY: 0.00&lt;/color&gt;&#10;&lt;color=#3d80f1ff&gt;QZ: 0.00&lt;/color&gt;&#10;QW: 1.00" name="LeftQuaternion" class="textMono" style="top: 30px; left: 240px; transform-origin: left top; position: absolute; width: 150px;" />
+        <ui:Label text="Tab — Overlap models" name="Overlap" class="text" style="top: 30px; transform-origin: top; position: absolute; align-self: center; -unity-text-align: upper-center;" />
         <ui:Label text="&lt;color=#f14121ff&gt;X: 360°&lt;/color&gt;&#10;&lt;color=#98f145ff&gt;Y: 0°&lt;/color&gt;&#10;&lt;color=#3d80f1ff&gt;Z: 0°&lt;/color&gt;" name="RightEuler" class="textMono" style="top: 30px; right: 50px; transform-origin: right top; position: absolute; width: 130px; -unity-text-align: upper-left;" />
         <ui:Label text="&lt;color=#f14121ff&gt;QX: 0.00&lt;/color&gt;&#10;&lt;color=#98f145ff&gt;QY: 0.00&lt;/color&gt;&#10;&lt;color=#3d80f1ff&gt;QZ: 0.00&lt;/color&gt;&#10;QW: 1.00" name="RightQuaternion" class="textMono" style="top: 30px; right: 240px; transform-origin: right top; position: absolute; width: 150px;" />
-        <ui:Label text="Tab — Overlap models" name="Tab" class="text" style="top: 30px; transform-origin: top; position: absolute; align-self: center; -unity-text-align: upper-center;" />
-        <ui:Label text="Space — Reset rotation" name="Space" class="text" style="transform-origin: bottom; position: absolute; align-self: center; -unity-text-align: upper-center; bottom: -1050px;" />
-        <ui:Label text="Shift —&#10;Random “safe” rotation" name="Shift" class="text" style="transform-origin: left bottom; align-self: flex-start; -unity-text-align: upper-left; bottom: -1050px; left: 50px; position: absolute;" />
-        <ui:Label text="Ctrl —&#10;Random “unsafe” rotation" name="Ctrl" class="text" style="transform-origin: right bottom; position: absolute; align-self: center; -unity-text-align: upper-right; bottom: -1050px; right: 50px;" />
+        <ui:Label text="Shift — Random “safe” rotation" name="RandomSafe" class="text" style="transform-origin: left bottom; align-self: flex-start; -unity-text-align: upper-left; bottom: -1050px; left: 50px; position: absolute;" />
+        <ui:Label text="Space — Reset rotation" name="Reset" class="text" style="transform-origin: bottom; position: absolute; align-self: center; -unity-text-align: upper-center; bottom: -1050px;" />
+        <ui:Label text="Ctrl — Random “unsafe” rotation" name="RandomUnsafe" class="text" style="transform-origin: right bottom; position: absolute; align-self: center; -unity-text-align: upper-right; bottom: -1050px; right: 50px;" />
     </ui:VisualElement>
 </ui:UXML>

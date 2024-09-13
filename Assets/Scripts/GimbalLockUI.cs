@@ -58,11 +58,11 @@ public class GimbalLockUI : MonoBehaviour
     {
         if (value)
         {
-            autoRotation.text = "Tab — Выкл. автовращение";
+            autoRotation.text = "Tab — Disable auto rotation";
         }
         else
         {
-            autoRotation.text = "Tab — Вкл. автовращение";
+            autoRotation.text = "Tab — Enable auto rotation";
         }
     }
 
@@ -75,11 +75,11 @@ public class GimbalLockUI : MonoBehaviour
     {
         if (value)
         {
-            rotationType.text = "Shift —\nИспользовать " + eulerColor + "углы Эйлера</color>";
+            rotationType.text = "Shift — Use " + eulerColor + "Euler angles</color>";
         }
         else
         {
-            rotationType.text = "Shift —\nИспользовать " + quaternionColor + "кватернионы</color>";
+            rotationType.text = "Shift — Use " + quaternionColor + "quaternions</color>";
         }
     }
 
