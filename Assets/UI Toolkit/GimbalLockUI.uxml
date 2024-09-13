@@ -6,7 +6,7 @@
         <ui:Label text="&lt;color=#3d80f1ff&gt;-Q +E&lt;/color&gt; — Вращать рамку &lt;color=#3d80f1ff&gt;Z&lt;/color&gt;" name="QE" class="text" style="top: 30px; right: 50px; transform-origin: right top; position: absolute; -unity-text-align: upper-right; align-self: flex-end;" />
     </ui:VisualElement>
     <ui:VisualElement name="Middle" style="position: absolute; flex-direction: row; top: 0; left: 0; right: 0; bottom: 0;">
-        <ui:Label text="&lt;color=#f14121ff&gt;X: 0°&lt;/color&gt;&#10;&lt;color=#98f145ff&gt;Y: 0°&lt;/color&gt;&#10;&lt;color=#3d80f1ff&gt;Z: 0°&lt;/color&gt;" name="Rotation" class="text" style="left: 50px; transform-origin: left; position: absolute; align-self: flex-start; top: 150px; bottom: 150px; -unity-text-align: middle-left;" />
+        <ui:Label text="&lt;color=#f14121ff&gt;X: 0°&lt;/color&gt;&#10;&lt;color=#98f145ff&gt;Y: 0°&lt;/color&gt;&#10;&lt;color=#3d80f1ff&gt;Z: 0°&lt;/color&gt;" name="Rotation" class="textMono" style="left: 50px; transform-origin: left; position: absolute; align-self: flex-start; top: 150px; bottom: 150px; -unity-text-align: middle-left;" />
         <ui:Label text="1, 2, 3 —&#10;Переключение&#10;демонстраций&#10;с комментариями" name="Commentary" class="text" style="right: 50px; transform-origin: right top; position: absolute; -unity-text-align: middle-right; align-self: flex-end; bottom: 150px; top: 150px;" />
     </ui:VisualElement>
     <ui:VisualElement name="Bottom" style="flex-direction: row; position: absolute; top: 0; left: 0; right: 0; bottom: 0;">
