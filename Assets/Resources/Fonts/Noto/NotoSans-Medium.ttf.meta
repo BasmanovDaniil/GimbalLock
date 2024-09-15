@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8c222c166e45dc34caa56830626aa798
+guid: 8ee0c0cf79814374dbbc364a64bf168d
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Roboto Mono
+  - Noto Sans
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0

@@ -1,12 +1,12 @@
 .text {
-    -unity-font-definition: resource('Fonts/Roboto-Medium');
+    -unity-font-definition: resource('Fonts/Noto/NotoSans-Medium');
     font-size: 30px;
     color: rgb(255, 255, 255);
     text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.5);
 }
 
 .textMono {
-    -unity-font-definition: resource('Fonts/RobotoMono-Medium');
+    -unity-font-definition: resource('Fonts/Noto/NotoSansMono-Medium');
     font-size: 30px;
     color: rgb(255, 255, 255);
     text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.5);
